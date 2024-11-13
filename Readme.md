@@ -21,13 +21,17 @@ This project is a simple, foundational HTTP caching proxy server implemented in 
 ## Usage
 
 1. Clone this repository to your local machine.
-2. Ensure that a server (e.g., Python’s simple HTTP server) is running on `127.0.0.1:8000` to serve test files.
+2. **Optional**: Create a virtual environment and activate it
+3. Run server on 8000. Enter text below on terminal
+   ```bash
+   python -m http.server 8000
+   ```
 
-3. Run the proxy server on a specified port:
+5. Run the proxy server on a specified port:
    ```bash
    python cache.py 8080
    ```
-4. Making Requests
+6. Making Requests
    - go to your browser and enter:
    ```browser
    http://localhost:8080/index.html
