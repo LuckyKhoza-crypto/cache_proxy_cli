@@ -1,20 +1,10 @@
 # Simple HTTP Proxy Server
 
-This project implements a basic HTTP proxy server that listens for client requests, fetches files from either a local cache or a remote server, and returns the response to the client. It can handle multiple client requests and is useful for caching frequently requested resources.
-
-## Table of Contents
-
-- [Features](#features)
-- [Requirements](#requirements)
-- [Usage](#usage)
-- [How It Works](#how-it-works)
-- [Project Structure](#project-structure)
-- [Notes](#notes)
-- [License](#license)
+This project implements a HTTP proxy server that listens for client requests, fetches files from either a local cache or a remote server, and returns the response to the client. It can handle multiple client requests and is useful for caching frequently requested resources.
 
 ## Features
 
-- Listens for HTTP client requests on a specified port.
+- Listens for HTTP client requests on a specified port using sockets
 - Fetches requested files from a local cache or a remote server.
 - Caches files locally to optimize future requests.
 - Returns `404 NOT FOUND` for non-existent files.
@@ -31,5 +21,5 @@ This project implements a basic HTTP proxy server that listens for client reques
 
 3. Run the proxy server on a specified port:
    ```bash
-   python cacheProxy.py <port>
+   python cache.py 8080
    ```
