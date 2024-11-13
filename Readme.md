@@ -1,4 +1,4 @@
-# Simple HTTP Proxy Server
+# Python HTTP Cache Proxy Server
 
 This project implements a HTTP proxy server that listens for client requests, fetches files from either a local cache or a remote server, and returns the response to the client. It can handle multiple client requests and is useful for caching frequently requested resources.
 
