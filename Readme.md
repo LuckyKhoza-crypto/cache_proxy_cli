@@ -1,13 +1,17 @@
-# Python HTTP Cache Proxy Server
+# Caching Proxy Server
 
-This project implements a HTTP proxy server that listens for client requests, fetches files from either a local cache or a remote server, and returns the response to the client. It can handle multiple client requests and is useful for caching frequently requested resources.
+This project is a simple, foundational HTTP caching proxy server implemented in Python. It provides basic caching functionality, storing HTTP responses to optimize response times for repeated requests, and reducing the load on target servers.
 
 ## Features
 
-- Listens for HTTP client requests on a specified port using sockets
-- Fetches requested files from a local cache or a remote server.
-- Caches files locally to optimize future requests.
-- Returns `404 NOT FOUND` for non-existent files.
+### In-Memory Caching
+- The server uses the local filesystem to store cached responses for requested files. This approach allows for fast retrievals on subsequent requests for the same file, enhancing efficiency by avoiding redundant fetches from the target server.
+
+### Proxy Functionality
+- The proxy server forwards client requests to a target server (default: `127.0.0.1:8000`) and caches the responses locally. If the same request is made again, the proxy returns the cached response, saving both time and resources.
+
+### Simple, Minimalist Design
+- This implementation is lightweight and suitable for demonstration or testing purposes. It is not intended for production use without additional improvements, such as enhanced security and error handling.
 
 ## Requirements
 
@@ -23,5 +27,21 @@ This project implements a HTTP proxy server that listens for client requests, fe
    ```bash
    python cache.py 8080
    ```
+4. Making Requests
+   - go to your browser and enter:
+   ```browser
+   http://localhost:8080/index.html
+   ```
+
+## Limitations
+
+### Memory Usage
+- Cached files are stored on the local filesystem and are only limited by available disk space. For large datasets or high traffic, consider implementing a more sophisticated caching mechanism or storing the cache in a database.
+
+### No Cache Eviction Policy
+- This server does not implement a cache eviction policy. Cached files will persist until manually cleared, which could lead to increased storage usage over time. Adding an eviction policy like Least Recently Used (LRU) would be a recommended improvement.
+
+## Conclusion
+This project serves as a basic example of a caching proxy server. While it is minimalistic, it demonstrates core caching principles and proxy functionality, serving as a solid foundation for building more complex and production-ready caching solutions.  
 
 Project Requirements - https://roadmap.sh/projects/caching-server
